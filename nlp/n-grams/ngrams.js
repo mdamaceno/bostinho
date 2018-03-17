@@ -1,7 +1,9 @@
 var base = require('../../database/base').base;
 var answer = require('../../database/base').default;
+require('dotenv').config();
 
-const _filter = 0.5;
+const _filter = process.env.FILTER || 0.5;
+const _grams = process.env.GRAMS || 3;
 
 var init = function(text){
   grams(text)
@@ -27,7 +29,8 @@ var grams = function(text){
 
 var generateGrams = function(text){
   text = text.toLowerCase();
-  return text.match(/[\s\S]{1,3}/g) || []
+  re = new RegExp('[\\s\\S]{1,'+ _grams +'}', 'g');
+  return text.match(re) || []
 }
 
 var compareGrams = function(grams, base){

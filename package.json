@@ -4,8 +4,12 @@
   "description": "a simple api for chatbots",
   "main": "index.js",
   "scripts": {
-    "test": "tests"
+    "test": "tests",
+    "start": "node index.js"
   },
   "author": "lesimoes",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^5.0.1"
+  }
 }
